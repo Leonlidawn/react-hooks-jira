@@ -1,4 +1,13 @@
-export const List = ({users, projectlist}) => {
+
+import {User} from 'types/user';
+import {Project} from 'types/project';
+
+interface ListProps {
+  users:User[];
+  projects:Project[];
+}
+
+export const List = ({users, projects}:ListProps) => {
   return <table>
     <thead>
       <tr> 
@@ -8,7 +17,7 @@ export const List = ({users, projectlist}) => {
     </thead>
     <tbody>
       {
-        projectlist.map(project => <tr key={project.id}>
+        projects.map(project => <tr key={project.id}>
           <td>{project.name}</td>
           <td>{users.find(user=>user.id === project.personId)?.name || 'Unknown'}
           </td>

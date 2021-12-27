@@ -12,7 +12,7 @@ export const ProjectListScreen = () => {
     personId: ''
   });
 
-  const debouncedParam = useDebounce(param, 2000);
+  const debouncedParam = useDebounce(param, 200);
   const [projectList, setprojectList] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -39,9 +39,10 @@ export const ProjectListScreen = () => {
     });
   }, [param]);
 
+  console.log(users)
   return <div>
     <SearchPanel users={ users } param={ param } setParam={ setParam } />
-    <List users={ users } projectlist={ projectList } />
+    <List users={ users } projects={ projectList } />
 
   </div>;
 };
